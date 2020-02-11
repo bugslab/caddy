@@ -17,11 +17,11 @@ package caddytls
 import (
 	"crypto/tls"
 	"fmt"
+	"hash/fnv"
 	"log"
 	"net"
 	"strings"
 
-	"github.com/caddyserver/caddy/telemetry"
 	"github.com/mholt/certmagic"
 )
 
@@ -155,6 +155,18 @@ type ClientHelloInfo struct {
 	CompressionMethodsUnknown bool `json:"-"`
 }
 
+// FastHash hashes input using a 32-bit hashing algorithm
+// that is fast, and returns the hash as a hex-encoded string.
+// Do not use this for cryptographic purposes.
+func FastHash(input []byte) string {
+	h := fnv.New32a()
+	if _, err := h.Write(input); err != nil {
+		log.Println("[ERROR] failed to write bytes: ", err)
+	}
+
+	return fmt.Sprintf("%x", h.Sum32())
+}
+
 // Key returns a standardized string form of the data in info,
 // useful for identifying duplicates.
 func (info ClientHelloInfo) Key() string {
@@ -165,7 +177,7 @@ func (info ClientHelloInfo) Key() string {
 	if !info.CompressionMethodsUnknown {
 		compressionMethods = fmt.Sprintf("%x", info.CompressionMethods)
 	}
-	return telemetry.FastHash([]byte(fmt.Sprintf("%x-%x-%s-%s-%x-%x",
+	return FastHash([]byte(fmt.Sprintf("%x-%x-%s-%s-%x-%x",
 		info.Version, info.CipherSuites, extensions,
 		compressionMethods, info.Curves, info.Points)))
 }

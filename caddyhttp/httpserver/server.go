@@ -34,7 +34,6 @@ import (
 	"github.com/caddyserver/caddy"
 	"github.com/caddyserver/caddy/caddyhttp/staticfiles"
 	"github.com/caddyserver/caddy/caddytls"
-	"github.com/caddyserver/caddy/telemetry"
 	"github.com/lucas-clemente/quic-go/http3"
 )
 
@@ -364,11 +363,6 @@ func (s *Server) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 	if len(ua) > 512 {
 		ua = ua[:512]
 	}
-	uaHash := telemetry.FastHash([]byte(ua)) // this is a normalized field
-	go telemetry.SetNested("http_user_agent", uaHash, ua)
-	go telemetry.AppendUnique("http_user_agent_count", uaHash)
-	go telemetry.Increment("http_request_count")
-
 	// copy the original, unchanged URL into the context
 	// so it can be referenced by middlewares
 	urlCopy := *r.URL

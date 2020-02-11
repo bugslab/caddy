@@ -44,7 +44,6 @@ import (
 	"time"
 
 	"github.com/caddyserver/caddy/caddyfile"
-	"github.com/caddyserver/caddy/telemetry"
 )
 
 // Configurable application parameters
@@ -600,12 +599,6 @@ func ValidateAndExecuteDirectives(cdyfile Input, inst *Instance, justValidate bo
 		return err
 	}
 
-	for _, sb := range sblocks {
-		for dir := range sb.Tokens {
-			telemetry.AppendUnique("directives", dir)
-		}
-	}
-
 	inst.context = stype.NewContext(inst)
 	if inst.context == nil {
 		return fmt.Errorf("server type %s produced a nil Context", stypeName)
@@ -615,8 +608,6 @@ func ValidateAndExecuteDirectives(cdyfile Input, inst *Instance, justValidate bo
 	if err != nil {
 		return fmt.Errorf("error inspecting server blocks: %v", err)
 	}
-
-	telemetry.Set("num_server_blocks", len(sblocks))
 
 	return executeDirectives(inst, cdyfile.Path(), stype.Directives(), sblocks, justValidate)
 }
