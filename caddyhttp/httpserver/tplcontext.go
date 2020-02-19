@@ -33,7 +33,7 @@ import (
 
 	"os"
 
-	"github.com/caddyserver/caddy/caddytls"
+	"caddy/caddytls"
 	"github.com/mholt/certmagic"
 	"github.com/russross/blackfriday"
 )

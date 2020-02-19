@@ -33,7 +33,7 @@ import (
 	"strings"
 	"sync"
 
-	"github.com/caddyserver/caddy/caddyhttp/httpserver"
+	"caddy/caddyhttp/httpserver"
 	"github.com/jimstudt/http-authentication/basic"
 )
 

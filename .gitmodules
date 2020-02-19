@@ -1,0 +1,3 @@
+[submodule "caddyhttp/cors"]
+	path = caddyhttp/cors
+	url = git@github.com:captncraig/cors.git

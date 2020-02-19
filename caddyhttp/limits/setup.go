@@ -20,8 +20,8 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/caddyserver/caddy"
-	"github.com/caddyserver/caddy/caddyhttp/httpserver"
+	"caddy"
+	"caddy/caddyhttp/httpserver"
 )
 
 const (

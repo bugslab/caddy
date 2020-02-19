@@ -17,7 +17,7 @@ package push
 import (
 	"net/http"
 
-	"github.com/caddyserver/caddy/caddyhttp/httpserver"
+	"caddy/caddyhttp/httpserver"
 )
 
 type (

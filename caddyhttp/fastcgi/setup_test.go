@@ -21,8 +21,8 @@ import (
 	"testing"
 	"time"
 
-	"github.com/caddyserver/caddy"
-	"github.com/caddyserver/caddy/caddyhttp/httpserver"
+	"caddy"
+	"caddy/caddyhttp/httpserver"
 )
 
 func TestSetup(t *testing.T) {

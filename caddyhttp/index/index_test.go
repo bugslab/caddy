@@ -17,9 +17,9 @@ package index
 import (
 	"testing"
 
-	"github.com/caddyserver/caddy"
-	"github.com/caddyserver/caddy/caddyhttp/httpserver"
-	"github.com/caddyserver/caddy/caddyhttp/staticfiles"
+	"caddy"
+	"caddy/caddyhttp/httpserver"
+	"caddy/caddyhttp/staticfiles"
 )
 
 func TestIndexIncompleteParams(t *testing.T) {

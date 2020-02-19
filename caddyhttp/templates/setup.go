@@ -19,8 +19,8 @@ import (
 	"net/http"
 	"sync"
 
-	"github.com/caddyserver/caddy"
-	"github.com/caddyserver/caddy/caddyhttp/httpserver"
+	"caddy"
+	"caddy/caddyhttp/httpserver"
 )
 
 func init() {

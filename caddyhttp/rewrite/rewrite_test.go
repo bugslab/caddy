@@ -23,7 +23,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/caddyserver/caddy/caddyhttp/httpserver"
+	"caddy/caddyhttp/httpserver"
 )
 
 func TestRewrite(t *testing.T) {

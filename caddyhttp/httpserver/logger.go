@@ -23,7 +23,7 @@ import (
 	"strings"
 	"sync"
 
-	"github.com/caddyserver/caddy"
+	"caddy"
 	gsyslog "github.com/hashicorp/go-syslog"
 )
 

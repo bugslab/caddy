@@ -1,8 +1,9 @@
-module github.com/caddyserver/caddy
+module caddy
 
 go 1.13
 
 require (
+	github.com/captncraig/cors v0.0.0-20190703115713-e80254a89df1
 	github.com/dustin/go-humanize v1.0.0
 	github.com/flynn/go-shlex v0.0.0-20150515145356-3f9db97f8568
 	github.com/go-acme/lego/v3 v3.3.0

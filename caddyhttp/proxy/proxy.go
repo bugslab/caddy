@@ -25,7 +25,7 @@ import (
 	"sync/atomic"
 	"time"
 
-	"github.com/caddyserver/caddy/caddyhttp/httpserver"
+	"caddy/caddyhttp/httpserver"
 )
 
 // Proxy represents a middleware instance that can proxy requests.

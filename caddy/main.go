@@ -19,7 +19,7 @@
 
 package main
 
-import "github.com/caddyserver/caddy/caddy/caddymain"
+import "caddy/caddy/caddymain"
 
 var run = caddymain.Run // replaced for tests
 

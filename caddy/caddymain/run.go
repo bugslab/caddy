@@ -29,14 +29,16 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/caddyserver/caddy"
-	"github.com/caddyserver/caddy/caddyfile"
-	"github.com/caddyserver/caddy/caddytls"
+	"caddy"
+	"caddy/caddyfile"
+	"caddy/caddytls"
+
 	"github.com/mholt/certmagic"
 	lumberjack "gopkg.in/natefinch/lumberjack.v2"
 
-	_ "github.com/caddyserver/caddy/caddyhttp" // plug in the HTTP server type
+	_ "caddy/caddyhttp" // plug in the HTTP server type
 	// This is where other plugins get plugged in (imported)
+	_ "caddy/caddyhttp/cors/caddy"
 )
 
 func init() {
@@ -266,7 +268,7 @@ func getBuildModule() *debug.Module {
 		// preserves caddy a read-only dependency
 		// TODO: track related Go issue: https://github.com/golang/go/issues/29228
 		for _, mod := range bi.Deps {
-			if mod.Path == "github.com/caddyserver/caddy" {
+			if mod.Path == "caddy" {
 				return mod
 			}
 		}
@@ -500,4 +502,3 @@ var (
 	printEnv        bool
 	validate        bool
 )
-

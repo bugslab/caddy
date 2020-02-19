@@ -15,8 +15,8 @@
 package requestid
 
 import (
-	"github.com/caddyserver/caddy"
-	"github.com/caddyserver/caddy/caddyhttp/httpserver"
+	"caddy"
+	"caddy/caddyhttp/httpserver"
 )
 
 func init() {

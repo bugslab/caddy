@@ -27,10 +27,11 @@ import (
 	"strings"
 	"time"
 
-	"github.com/caddyserver/caddy"
-	"github.com/caddyserver/caddy/caddyfile"
-	"github.com/caddyserver/caddy/caddyhttp/staticfiles"
-	"github.com/caddyserver/caddy/caddytls"
+	"caddy"
+	"caddy/caddyfile"
+	"caddy/caddyhttp/staticfiles"
+	"caddy/caddytls"
+
 	"github.com/mholt/certmagic"
 )
 
@@ -636,7 +637,7 @@ var directives = []string{
 	"ratelimit",    // github.com/xuqingfeng/caddy-rate-limit
 	"recaptcha",    // github.com/defund/caddy-recaptcha
 	"expires",      // github.com/epicagency/caddy-expires
-	"forwardproxy", // github.com/caddyserver/forwardproxy
+	"forwardproxy", // forwardproxy
 	"basicauth",
 	"redir",
 	"status",

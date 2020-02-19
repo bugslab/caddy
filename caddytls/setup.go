@@ -29,7 +29,7 @@ import (
 	"sync/atomic"
 	"time"
 
-	"github.com/caddyserver/caddy"
+	"caddy"
 	"github.com/mholt/certmagic"
 )
 
