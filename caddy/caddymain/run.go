@@ -37,8 +37,10 @@ import (
 	lumberjack "gopkg.in/natefinch/lumberjack.v2"
 
 	_ "caddy/caddyhttp" // plug in the HTTP server type
+
 	// This is where other plugins get plugged in (imported)
 	_ "caddy/caddyhttp/cors/caddy"
+	_ "caddy/caddyhttp/grpc"
 )
 
 func init() {

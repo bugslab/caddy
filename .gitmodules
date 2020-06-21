@@ -1,3 +1,6 @@
 [submodule "caddyhttp/cors"]
 	path = caddyhttp/cors
 	url = git@github.com:bugslab/cors.git
+[submodule "caddyhttp/grpc"]
+	path = caddyhttp/grpc
+	url = git@github.com:bugslab/caddy-grpc.git
